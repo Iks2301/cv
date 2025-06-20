@@ -1,0 +1,226 @@
+body {
+    font-family: Arial;
+    /* selektor body, który obejmuje wszystkie tagi */
+    /* color nie zadziała na span, bo tam już sobie ustaliliśmy, 
+    ale tak to zadziała, jak nic tam nie będzie */
+    background-color: aliceblue;
+    /* wciskać strzałki przy zmianie koloru w devtools */
+    /* tag section dziedziczy tylko font-family, nie dziedziczy background-color
+    można to sprawdzić wsickając dowolne section -> computed */
+    /* tagi w html są domyślnie przezroczyste i ich kolor tła będzie taki jak kolor tagu ich rodzica, czyli będzie ten rodzic się przebijać */
+    padding: 40px 0; /* zwiększenie niebieskiej przestrzeni */
+}     
+h1 {
+    font-size: 36px;
+    margin-bottom: 10px; /* chcemy, by Filip Mamcarczyk i Frondend Developer były bliżej siebie */
+}
+
+/*  h1 {
+        font-size: 36px;
+        width: 250px; wymiary pola, szerokość
+        height: 250px; wymiary pola, wysokość
+        border: 5px solid red; obramowanie, ramka, szerokość 5px, ciągła linia, kolor czerwony
+        padding: 20px; odsuwanie pola od krawędzi ramki, to też jest:
+        padding-top, padding-right, padding-bottom, padding-left
+        margin: 20px; odsuwanie pola od krawędzi zewnętrznej, wszystkie krawędzie o 20px, wyświetli sie w styles 4 pozostałe:
+        margin-top, margin-right, margin-bottom, margin-left
+        margin-bottom: 40px;
+        color: blue;
+        color: red;
+        margin-top: 40px;
+        margin-right: 20px;
+        margin-bottom: 60px;
+        margin-left: 35px;
+        margin: 40px 20px 60px 35px; to nadpisuje 4 marginy wyżej, lecimy zgodnie z ruchem wskazówek zegara, żeby nie pisać 4 razy osobno niepotrzebnie
+        padding: 10px 20px 30px 15px; to nadpisuje 4 paddingi wyżej, lecimy zgodnie z ruchem wskazówek zegara, żeby nie pisać 4 razy osobno niepotrzebnie
+        to, co pisane jest niżej nadpisuje to, co wyżej*/
+
+h2 {
+    font-size: 28px;
+}
+
+/* tu jest selektor tagu h2, nie pisze się go <h2></h2>, można usunąć wszędzie w kodzie
+tam gdzie to było osobno wprowadzane
+; - odzielenie reguł CSS
+musi być px - 150px bez spacji, bo nie wyjdzie 
+kopiowanie z pliku html to pliku css, trzeba wszędzie dawać px*/
+/* font-family - zmiana stylu czcionki */
+
+h3 {
+    margin-top: 5px; /* chcieliśmy przesunąć lekko marginesy do góry, by wyrównać ikonę po lewej stronie tekstu */
+}
+
+span {
+    color: grey;
+}
+            
+/* section {
+    padding: 10px 60px 20px 60px
+}
+
+header {
+    padding: 10px 60px 20px 60px
+} */
+
+
+.container {
+    box-shadow: 0 0 20px grey; /* tworzenie cieni */
+    /* 1 i 2 wartość mówią, o ile pikseli ma być przesunięty cień względem elementu, któremu nakładamy cień */
+    /* 1 przemieszcza w poziomie, 2 przemieszcza w pionie */
+    /* 3 wartość - rozmycie koloru cienia, im wyższa tym większe rozmycie cienia */ 
+    /* 4 wartość - wybranie koloru cienia */
+    background-color: white; /* to zajmuje prawie całą stronę, ale obramowania są jasnoniebieskie, bo margines tła dany przez przeglądarkę ma 8px */
+    width: 960px; /* wymiar kartki A4 */
+    /* margin: 0 auto 0 auto; */
+         /* T  R   B   L */
+    margin: 0 auto; /* skrócony zapis */
+         /* 0 odnosi się do marginesu górnego i dolnego, auto odnosi się do marginesu lewego i prawego */
+         /* auto - najwyższa wartość marginesu przeglądarki, przy margin-left maksymalnie w prawo, przy margin-right maksymalnie w lewo */
+    /* przenosimy z section i header wszystko oprócz paddingu, bo cień obejmuje cały obszar, niebieski też, a my chcemy tylko tam, gdzie biała kartka */
+}
+
+section, header {
+    padding: 10px 60px 20px 60px; /* selektory mają te same style */
+
+}   
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 60px; /* nadpiszemy pading-top 10px z header wyżej, chcemy dać większy odstęp elementom */
+}
+
+/* display: flex - wyświetla elementy w jednej linii obok siebie, taki display:block, ale poziomo, należy do flexbox,
+najpierw należy to wpisać, aby korzystać z całego zasobu flexbox
+justify-content: center - elementy zostaną ustawione na środku tej linii, ale nie na środku strony, to jest wyjustowanie do środka
+justify-content: space-between - 1 i 4 element będą ustawione do przyległych krawędzi, a pomiędzy pozostałymi znajduje się równy odstęp
+justify-content: space-around - proporcjonalne odstępy między wszystkimi elementami a krawędziami
+algin-items: center - ustawia elementy na środku całej strony schodząc pionowo w dół
+algin-items: flex-end - wyrównuje elementy do dolnej krawędzi
+algin-items: flex-start - wyrównuje elementy do górnej krawędzi
+to jest wyjustowanie, wyrównywanie elementów jak tekst w wordzie */
+
+header ul { /* ul tylko w header */
+    list-style: none; 
+}
+
+/* list-style: none; - z listy kropkowanej usuwa kropki*/
+
+li {
+    margin-bottom: 15px; /* daje odstępy między wierszami, usunęliśmy, żeby nie były tylko w header, mają być wszędzie */
+}
+
+.address-icon {
+/* header address img - to było wcześniej, jak nie definiowaliśmy klas { */
+/* klasy po to, by odnosić się do każdego elementu z tą klasą */
+    width: 16px;
+    height: 16px;
+    background-color: cornflowerblue;
+    margin-right: 10px;
+    padding: 8px; 
+    vertical-align: middle;
+}
+
+
+/* trzeba wpisać osobną komendę żeby nie dla wszystkich obrazów przyjmowało 150px na 150px, bo się zjeżdza cała strona */
+/* ikony są dalej niewidoczne, bo jest białe tło całego cv, a .png domyślnie zlewa się z tłem, trzeba wpisać background-color */
+/* margin-right jest po to, by oddzielić ikony od tekstu */
+/* padding jest po to, by oddzielić ikony od krawędzi elementu */
+/* przeglądarka przylepiła ikony do dolnej krawędzi elementu li */
+/* vertical-align: middle wyrównanie pionowe do środka, działa tylko dla elementów display: inline */
+
+/* align-items działa tylko dla elementów z display: flex */
+
+/* background-color wpływa na padding, ale na margin już nie */
+/* margin: pozycjonowanie elementów względem innych elementów */
+/* padding: dodawanie odstępu wewnątrz elementu */
+
+.circle {
+    border-radius: 50%; /* sprawia, że ikony się zaokrąglają, przy 16px jak te 4 zdjęcia są idealnym kołem, można też wpisać 50% */
+}
+
+.profile-picture {
+    width: 180px;
+    height: 180px;
+}
+/* odnosi się tylko do zdjęcia profilowego */
+
+.hobbies {
+    list-style: none;
+    padding: 0; /* wyzerowanie odstępów wewnętrznych */
+    display: flex; /* wszystkie <p> ustwią się w jednej linii poziomo*/
+    flex-wrap: wrap; /* zawija elementy, że są obok siebie, a jak się nie mieści, to są dalej pod spodem */
+    /* flexbox ignoruje wymiary elementów i upycha je w jednej linii, trzeba dodać regułę flex-wrap: wrap */
+}
+
+.hobbies li {
+    width: 50%; /* układ dwukolumnowy, każdy element p będzie miał połowę swojej długości, a chcemy, żeby nie były 4 w jednej linii,
+    tylko żeby się zawijały dwa na górze obok siebie, dwa na dole*/
+    /* układ 3 kolumnowy - width: 33.3% */
+    display: flex; /* chcemy ustawić ikonę po lewej stronie hobby. Jeśli ustawimy display: flex dla li w .hobbies przeglądarka wyświetli 3 kolumny: ikonkę, hobby i opis*/
+    /* użyjemy div, aby zgrupować nazwę hobby i opis, ale to w kodzie html */
+    /* po dodaniu div do wszystkich li ikona jest rozciągnięta, bo w computed align-items jest ustawione na normal
+    co skutkuje rozciągnięcie jej na całą wysokość kontenera */
+    align-items: flex-start; /* dodamy ikonę wyśrodkowaną na górze kontenera */
+    margin-bottom: 40px; /* kino i literarura mają być odsunięte od gry planszowe i bieganie*/
+}   
+
+.hobbies div {
+    margin-left: 20px; /* odsunięcie tekstu od ikony od lewej strony krawędzi*/
+}
+
+.hobbies p {
+    color: grey; /* kolor tekstu, paragrafu */
+}
+
+p {
+    line-height: 1.5; /* ustawianie interlinii, odstępu pomiędzy liniami w tekście */
+    /* 1.5 oznacza, że wielkość linii ma być 1,5x większa niż wielkość czcionki elementu p */
+}
+
+/* tworzenie przycisku do pobierania CV */
+.cv-download-link {
+    border: 2px solid cornflowerblue; /* ramka wokół pola do pobierania CV */
+    color: black;
+    text-decoration: none; /* usuwanie podkreślenia tekstu Pobierz CV */ 
+    padding: 10px 20px; /*10px - górny, dolny, 20px - lewy, prawy*/
+    /* dodawanie marginesów i paddingów w pionie nie powoduje przemieszczania się treści elementu
+    tak jak w przypadku elementów display: block */
+    display: inline-block; /* element dalej będzie się wyświetlał w jednej linii jak elementy display: inline,
+    jednak dodanie marginesu w pionie skutkuje przemieszczeniem się elementu tak jak w przypadku elementów 
+    z display: block*/
+    margin-top: 20px;
+    border-radius: 26px; /* zaokrągla pole do pobierania, wygładza krawędzie elementu */
+    transition: background-color 0.5s, color 0.5s; /* po najechaniu na pole Pobierz CV, zmiana koloru tła
+    będzie następować stopniowo, a nie od razu, jeśli kiedykolwiek zmieni się kolor tła dla
+    elementu klasy .cv-download-link, to zanimuj kolor tła w czasie 0.5s, ze zmianą koloru tekstu będzie tak samo*/
+    /* nie może być spacji przy 0.5s, czyli 0.5 s jest źle, 0,5s też */
+}   
+
+
+
+
+/*po najechaniu kursorem myszki na przycisk zmieni się kolor tego przycisku */
+/*pseudoklasa hover*/
+/*hover - stan, w którym nad elementem znajduje się kursor*/
+.cv-download-link:hover {
+    color: white; /* kolor tekstu zmieni się na biały */
+    background-color: cornflowerblue; /* kolor tła zmieni się na niebieski */
+}
+
+/* po wciskaniu tab i najechaniu na Pobierz CV pojawia się ramka czyli focus, chcemy go usunąć */
+/* pseudoklasa focus */
+.cv-download-link:focus {
+    outline: none; /* zniknie obramowanie po wciskaniu tab */
+    color: white; /* kolor tekstu zmieni się na biały */
+    background-color: cornflowerblue; /* kolor tła zmieni się na niebieski */
+}
+
+/* pseudoklasa active */
+.cv-download-link:active {
+    text-decoration: underline; /* jak klikniemy i przytrzymamy lewy przycisk myszy na Pobierz CV nie pojawia się
+    /* podkreślenie, chcemy je dodać, text-decoration: underline je dodaje */
+}
+
+/* muszą być nazwy hover, focus, active, są wbudowane w css */
